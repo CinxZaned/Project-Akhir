@@ -5,6 +5,7 @@ class Mhs_info:
         self.tgl_lahir = tgl_lahir
         self.ipk = ipk
 
+
 class Mhs_database:
     def __init__(self):
         self.data_mhs_all = []
@@ -31,21 +32,26 @@ class Mhs_database:
         print("NIM ------> Nama ------> Tanggal Lahir ------> IPK")
         for i, mhs in enumerate(self.data_mhs_all):
             nim, nama, tgl_lahir, ipk = mhs
-            print(f"Student {i + 1}: NIM - {nim}, Name - {nama}, Birth Date - {tgl_lahir}, IPK - {ipk}")
+            print(
+                f"Student {i + 1}: NIM - {nim}, Name - {nama}, Birth Date - {tgl_lahir}, IPK - {ipk}")
+
 
 mhs1 = Mhs_database()
+
 
 def display_menu():
     print("Pilih Menu di bawah ini")
     print("1. Memasukkan data")
     print("2. Mencari data")
     print("3. Menghapus data")
-    print("4. Exit")
+    print("4. Mengurutkan Data")
+    print("5. Mengurutkan Data")
+    print("6. Exit")
+
 
 while True:
     display_menu()
     menu = int
-
 
 
 nim = int(input("Masukkan NIM: "))
