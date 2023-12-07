@@ -32,8 +32,7 @@ class Mhs_database:
         print("NIM ------> Nama ------> Tanggal Lahir ------> IPK")
         for i, mhs in enumerate(self.data_mhs_all):
             nim, nama, tgl_lahir, ipk = mhs
-            print(
-                f"Student {i + 1}: NIM - {nim}, Name - {nama}, Birth Date - {tgl_lahir}, IPK - {ipk}")
+            print(f"Student {i + 1}: NIM - {nim}, Name - {nama}, Birth Date - {tgl_lahir}, IPK - {ipk}")
 
 
 mhs1 = Mhs_database()
@@ -51,14 +50,14 @@ def display_menu():
 
 while True:
     display_menu()
-    menu = int
+    menu = int(input("Pilihan anda: "))
 
 
-nim = int(input("Masukkan NIM: "))
-nama = str(input("Masukkan Nama: "))
-tgl_lahir = str(input("Masukkan Tanggal lahir (dd-mm-yyyy): "))
-ipk = float(input("Masukkan IPK: "))
+# nim = int(input("Masukkan NIM: "))
+# nama = str(input("Masukkan Nama: "))
+# tgl_lahir = str(input("Masukkan Tanggal lahir (dd-mm-yyyy): "))
+# ipk = float(input("Masukkan IPK: "))
 
-mhs1.insert_data(nim, nama, tgl_lahir, ipk)
+# mhs1.insert_data(nim, nama, tgl_lahir, ipk)
 
-mhs1.display_data()
+# mhs1.display_data()
