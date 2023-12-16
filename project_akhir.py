@@ -38,19 +38,6 @@ class Mhs_database:
 mhs1 = Mhs_database()
 
 
-def display_menu():
-    print("Pilih Menu di bawah ini")
-    print("1. Memasukkan data")
-    print("2. Mencari data")
-    print("3. Menghapus data")
-    print("4. Mengurutkan Data")
-    print("5. Mengurutkan Data")
-    print("6. Exit")
-
-
-while True:
-    display_menu()
-    menu = int(input("Pilihan anda: "))
 
 
 # nim = int(input("Masukkan NIM: "))
