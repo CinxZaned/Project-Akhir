@@ -51,6 +51,8 @@ class MhsDatabase:
         self.refresh_btn = tk.Button(root, text="Refresh", command=self.refresh_db)
         self.refresh_btn.pack(padx=10, pady=5, anchor="sw")
 
+        self.data_mhs = []
+
     def fetch_data(self):
         if not self.tree.get_children():
             self.fd = False
@@ -81,6 +83,18 @@ class MhsDatabase:
             self.fd = True
         else:
             messagebox.showwarning("Warning", "Data from the database has already inputted!")
+
+    def store_data(self):
+        for data in self.data_mhs:
+            self.tree.insert('', 'end', values=data)
+
+    def check_nim(self, value):
+        for child in self.tree.get_children():
+            # Retrieve the value in column 1 (index 0)
+            current_value = self.tree.item(child, 'values')[0]
+            if current_value == value:
+                return True
+        return False
     
     def refresh_db(self):
         if not self.tree.get_children():
@@ -88,6 +102,7 @@ class MhsDatabase:
         else:
             self.tree.delete(*self.tree.get_children())
             self.fetch_data()
+            self.store_data()
         pass
 
     def on_heading_click(self, column):
@@ -212,10 +227,16 @@ class MhsDatabase:
         nama = self.nama_txt.get()
         tgl = self.tgl_txt.get()
         ipk = self.ipk_txt.get()
-        data = (nim, nama, tgl, ipk)
-        if len(nim) != 11:
+        if nim == "" or nama == "" or tgl == "" or ipk == "":
+            messagebox.showwarning("Warning", "All inputs must be filled in!")
+        elif len(nim) != 11:
             messagebox.showwarning("Warning", "NIM must be 11 digits!")
+        elif self.check_nim(nim):
+            messagebox.showwarning("Warning", "NIM already exist!")
         else:
+            data = (nim, nama, tgl, ipk)
+            mhs = [nim, nama, tgl, ipk]
+            self.data_mhs.append(mhs)
             self.tree.insert('', 'end', values=data)
             messagebox.showwarning("Status", "Data input was successful!")
 
